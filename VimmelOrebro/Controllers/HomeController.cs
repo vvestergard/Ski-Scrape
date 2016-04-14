@@ -14,6 +14,11 @@ namespace VimmelOrebro.Controllers
             return View();
         }
 
+        public ActionResult Clubs()
+        {
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
