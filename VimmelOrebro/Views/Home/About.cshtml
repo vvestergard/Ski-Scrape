@@ -14,112 +14,130 @@
 
 </head>
 <body onload="init();">
-<div class="wrapper">
+    <div class="wrapper">
 
-    <h2>About</h2>
+        <h2>Om oss</h2>
 
-    <p>
-        Bacon ipsum dolor amet beef ribs chuck corned beef pastrami. 
-        Tongue chuck picanha pork loin shoulder. Tail swine shankle brisket jowl pork loin, picanha short ribs corned beef leberkas pork chop capicola tri-tip strip steak. 
-        Sirloin boudin chicken jowl sausage kielbasa shank pork belly bacon filet mignon leberkas kevin tenderloin. Pig capicola filet mignon ham pork belly. 
-        Prosciutto ribeye flank chicken meatball, cow drumstick meatloaf swine shoulder alcatra.
-    </p>
-    <canvas id="demoCanvas" height="100" width="1100" style="border: solid black 1px"></canvas>
+        <p>
+            Bacon ipsum dolor amet beef ribs chuck corned beef pastrami.
+            Tongue chuck picanha pork loin shoulder. Tail swine shankle brisket jowl pork loin, picanha short ribs corned beef leberkas pork chop capicola tri-tip strip steak.
+            Sirloin boudin chicken jowl sausage kielbasa shank pork belly bacon filet mignon leberkas kevin tenderloin. Pig capicola filet mignon ham pork belly.
+            Prosciutto ribeye flank chicken meatball, cow drumstick meatloaf swine shoulder alcatra.
+        </p>
+        <canvas id="demoCanvas" height="100" width="1100" style=" border: solid #FFFFFF 3px; box-shadow: black 0px 16px 50px -30px;"></canvas>
 
-    <script>
+        <script>
 
-        function init() {
-            var stage = new createjs.Stage("demoCanvas");
+            function init() {
+                var stage = new createjs.Stage("demoCanvas");
 
-            //var bajs = "#ff6300";
+                //var bajs = "#ff6300";
 
-            var circle = new createjs.Shape();
-            circle.graphics.beginFill("black").drawCircle(0, 0, 50);
-            circle.x = 550;
-            circle.y = 50;
-            circle.scaleY = 0;
-            circle.scaleX = 0;
-            stage.addChild(circle);
-            createjs.Tween.get(circle, { loop: true })
-            .to({ scaleX: 20, scaleY: 20 }, 4000)
-            .to({}, 2000)
-            .to({ scaleX: 0, scaleY: 0 }, 2000);
+                var circle = new createjs.Shape();
+                circle.graphics.beginFill("grey").drawCircle(0, 0, 50);
+                circle.x = 550;
+                circle.y = 50;
+                circle.scaleX = 0;
+                circle.scaleY = 0;
+                stage.addChild(circle);
+                createjs.Tween.get(circle, { loop: false })
+                    .to({ scaleX: 20, scaleY: 20 }, 4000)
+                    .to({}, 2000)
+                    .to({ scaleX: 0, scaleY: 0 }, 2000);
+
+                var text = new createjs.Text("Välkommen till Vimmel Örebro!", "30px Oswald", "white");
+                text.x = 1100;
+                text.y = 50;
+                text.scaleY = 1;
+                text.scaleX = 1;
+                createjs.Tween.get(text, { loop: false })
+                    .to({}, 1000)
+                    .to({ x: 100, }, 3000, createjs.Ease.getPowInOut(4))
+                    .to({ x: 90 }, 2000)
+                    .to({ x: -1000, }, 1000, createjs.Ease.getPowInOut(4))
+                .to({}, 1100);
+                stage.addChild(text);
+
+                var wcircle = new createjs.Shape();
+                wcircle.graphics.beginFill("tomato").drawCircle(0, 0, 50);
+                wcircle.x = 550;
+                wcircle.y = 50;
+                wcircle.scaleX = 0;
+                wcircle.scaleY = 0;
+                stage.addChild(wcircle);
+                createjs.Tween.get(wcircle, { loop: false })
+                    .to({}, 5000)
+                    .to({ scaleX: 20, scaleY: 20 }, 4000)
+                    .to({}, 2000)
+               
+
+                var text2 = new createjs.Text("www.vimmelorebro.se", "30px Oswald", "white");
+                text2.x = 1100;
+                text2.y = 50;
+                text2.scaleY = 1;
+                text2.scaleX = 1;
+                createjs.Tween.get(text, { loop: false })
+                    .to({}, 1000)
+                .to({}, 1100);
+                stage.addChild(text2);
+                createjs.Ticker.setFPS(60);
+                createjs.Ticker.addEventListener("tick", stage);
+
+                //var circle = new createjs.Shape();
+                //circle.graphics.beginFill("#ff8a75").drawCircle(0, 0, 50);
+                //circle.x = 250;
+                //circle.y = 150;
+                //circle.scaleY = 0;
+                //circle.scaleX = 0;
+                //stage.addChild(circle);
+                //createjs.Tween.get(circle, { loop: false })
+                // .to({ scaleX: 10, scaleY: 10 }, 2000);
+
+                //var circle2 = new createjs.Shape();
+                //circle2.graphics.beginFill("Tomato").drawCircle(0, 0, 50);
+                //circle2.x = 250;
+                //circle2.y = 150;
+                //circle2.scaleY = 0;
+                //circle2.scaleX = 0;
+                //stage.addChild(circle2);
+                //createjs.Tween.get(circle2, { loop: false })
+                //    .to({}, 1000)
+                // .to({ scaleX: 10, scaleY: 10 }, 2000);
 
 
-            createjs.Ticker.setFPS(60);
-            createjs.Ticker.addEventListener("tick", stage);
+                //var rect = new createjs.Shape();
+                //rect.graphics.beginFill("white").drawRect(10, 10, 600, 1000);
+                //rect.y = 1500;
+                //rect.x = -10;
+                //stage.addChild(rect);
+                //createjs.Tween.get(rect, { loop: false })
+                //    .to({}, 1000)
+                //    .to({ y: 160, }, 2500, createjs.Ease.getPowInOut(4))
+                //.to({}, 2000)
+                //.to({ y: -1600, }, 5000, createjs.Ease.getPowInOut(4));
 
-            var text = new createjs.Text("Välkommen till Vimmel Örebro!", "30px Oswald", "white");
-            text.x = 1100;
-            text.y = 50;
-            text.scaleY = 1;
-            text.scaleX = 1;
-            createjs.Tween.get(text, { loop: true })
-                .to({}, 1000)
-                .to({ x: 100, }, 3000, createjs.Ease.getPowInOut(4))
-                .to({ x: 90 }, 2000)
-                .to({ x: -1000, }, 1000, createjs.Ease.getPowInOut(4))
-            .to({}, 1100);
-            stage.addChild(text);
+                //var text = new createjs.Text("Välkommen till Info Media", "30px Oswald", "white");
 
 
+                //text.x = 1020;
+                //text.y = 130;
+                //text.scaleY = 1;
+                //text.scaleX = 1;
+                //createjs.Tween.get(text, { loop: false })
+                //    .to({}, 1000)
+                //    .to({ x: 100, }, 2500, createjs.Ease.getPowInOut(4))
+                //    .to({ x: 90 }, 2000)
+                //    .to({ x: -1000, }, 1000, createjs.Ease.getPowInOut(4))
+                //.to({}, 1000);
 
-            //var circle = new createjs.Shape();
-            //circle.graphics.beginFill("#ff8a75").drawCircle(0, 0, 50);
-            //circle.x = 250;
-            //circle.y = 150;
-            //circle.scaleY = 0;
-            //circle.scaleX = 0;
-            //stage.addChild(circle);
-            //createjs.Tween.get(circle, { loop: false })
-            // .to({ scaleX: 10, scaleY: 10 }, 2000);
+                //stage.addChild(text);
+                //createjs.Ticker.setFPS(60);
+                //createjs.Ticker.addEventListener("tick", stage);
 
-            //var circle2 = new createjs.Shape();
-            //circle2.graphics.beginFill("Tomato").drawCircle(0, 0, 50);
-            //circle2.x = 250;
-            //circle2.y = 150;
-            //circle2.scaleY = 0;
-            //circle2.scaleX = 0;
-            //stage.addChild(circle2);
-            //createjs.Tween.get(circle2, { loop: false })
-            //    .to({}, 1000)
-            // .to({ scaleX: 10, scaleY: 10 }, 2000);
+            }
 
+        </script>
 
-            //var rect = new createjs.Shape();
-            //rect.graphics.beginFill("white").drawRect(10, 10, 600, 1000);
-            //rect.y = 1500;
-            //rect.x = -10;
-            //stage.addChild(rect);
-            //createjs.Tween.get(rect, { loop: false })
-            //    .to({}, 1000)
-            //    .to({ y: 160, }, 2500, createjs.Ease.getPowInOut(4))
-            //.to({}, 2000)
-            //.to({ y: -1600, }, 5000, createjs.Ease.getPowInOut(4));
-
-            //var text = new createjs.Text("Välkommen till Info Media", "30px Oswald", "white");
-
-
-            //text.x = 1020;
-            //text.y = 130;
-            //text.scaleY = 1;
-            //text.scaleX = 1;
-            //createjs.Tween.get(text, { loop: false })
-            //    .to({}, 1000)
-            //    .to({ x: 100, }, 2500, createjs.Ease.getPowInOut(4))
-            //    .to({ x: 90 }, 2000)
-            //    .to({ x: -1000, }, 1000, createjs.Ease.getPowInOut(4))
-            //.to({}, 1000);
-
-            //stage.addChild(text);
-            //createjs.Ticker.setFPS(60);
-            //createjs.Ticker.addEventListener("tick", stage);
-
-        }
-
-    </script>
-
-</div>
+    </div>
 
 </body>
-
