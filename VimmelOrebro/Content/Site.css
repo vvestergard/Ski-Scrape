@@ -22,33 +22,28 @@ select,
 textarea {
     max-width: 280px;
 }
-.navbar-inverse
-{
+
+.navbar-inverse {
     background-color: white !important;
     border-color: rgba(160, 160, 160, 0.37) !important;
 }
 
-a
-{
+a {
     transition: .2s;
     color: black !important;
 }
 
-a:hover
-{
-    transition: .2s;
-    color: rgba(0, 0, 0, 0.50) !important;
-}
+    a:hover {
+        transition: .2s;
+        color: rgba(0, 0, 0, 0.50) !important;
+    }
 
-.wrapper
-{
+.wrapper {
     width: 1100px;
-    
     margin: 0 auto;
 }
 
-.imgCont
-{
+.imgCont {
     height: 800px;
     width: 520px;
     background-color: white;
@@ -57,51 +52,95 @@ a:hover
     box-shadow: black 0px 16px 50px -30px;
 }
 
+.centerImg {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.imgText {
+    font-size: 1.8em;
+    color: darkslategrey;
+    margin: 15px;
+}
+
 /*  SECTIONS  */
 .section {
-	clear: both;
-	padding: 0px;
-	margin: 0px;
+    clear: both;
+    padding: 0px;
+    margin: 0px;
 }
 
 /*  COLUMN SETUP  */
 .col {
-	display: block;
-	float:left;
-	margin: 1% 0 1% 1.6%;
+    display: block;
+    float: left;
+    margin: 1% 0 1% 1.6%;
 }
-.col:first-child { margin-left: 0; }
+
+    .col:first-child {
+        margin-left: 0;
+    }
 
 /*  GROUPING  */
 .group:before,
-.group:after { content:""; display:table; }
-.group:after { clear:both;}
-.group { zoom:1; /* For IE 6/7 */ }
+.group:after {
+    content: "";
+    display: table;
+}
+
+.group:after {
+    clear: both;
+}
+
+.group {
+    zoom: 1; /* For IE 6/7 */
+}
 
 /*  GRID OF TWO  */
 .span_2_of_2 {
-	width: 100%;
+    width: 100%;
 }
+
 .span_1_of_2 {
-	width: 49.2%;
+    width: 49.2%;
 }
 
 /*  GRID OF THREE  */
-.span_3_of_3 { width: 100%; }
-.span_2_of_3 { width: 66.13%; }
-.span_1_of_3 { width: 32.26%; }
+.span_3_of_3 {
+    width: 100%;
+}
+
+.span_2_of_3 {
+    width: 66.13%;
+}
+
+.span_1_of_3 {
+    width: 32.26%;
+}
 
 /*  GO FULL WIDTH BELOW 480 PIXELS */
 
 @media only screen and (max-width: 800px) {
-	.col {  margin: 1% 0 1% 0%; }
-	.span_3_of_3, .span_2_of_3, .span_1_of_3 { width: 100%; }
-	.span_2_of_2, .span_1_of_2 { width: 100%; }
-    .wrapper { width: 100%; }
+    .col {
+        margin: 1% 0 1% 0%;
+    }
+
+    .span_3_of_3, .span_2_of_3, .span_1_of_3 {
+        width: 100%;
+    }
+
+    .span_2_of_2, .span_1_of_2 {
+        width: 100%;
+    }
+
+    .wrapper {
+        width: 100%;
+    }
 }
 
 @media only screen and (max-width: 1200px) {
-	
-    .wrapper { width: 100%; }
-}
 
+    .wrapper {
+        width: 100%;
+    }
+}
