@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HtmlAgilityPack;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -48,10 +49,19 @@ namespace VimmelOrebro.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BID,bildPath,EnrollmentDate")] Bilder bilder, HttpPostedFileBase bildPath)
+        public ActionResult Create([Bind(Include = "BID,bildPath,EnrollmentDate")] Bilder bilder, HttpPostedFileBase bildPath,string namn)
         {
             if (ModelState.IsValid)
             {
+                var sida = namn;
+                string sidan = sida;
+                HtmlDocument page = new HtmlWeb().Load(sidan);
+                HtmlNodeCollection nodeCollection = page.DocumentNode.SelectNodes("//div[@class='snow_depth']//p");
+
+                foreach (HtmlNode node in nodeCollection)
+                {
+
+                }
                 if (bildPath.ContentLength > 0)
                 {
 
