@@ -49,36 +49,50 @@ namespace VimmelOrebro.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BID,bildPath,EnrollmentDate")] Bilder bilder, HttpPostedFileBase bildPath,string namn)
+        public ActionResult Create([Bind(Include = "BID,bildPath,EnrollmentDate")] Bilder bilder, string bildPath, string namn)
         {
             if (ModelState.IsValid)
             {
                 var sida = namn;
                 string sidan = sida;
                 HtmlDocument page = new HtmlWeb().Load(sidan);
-                HtmlNodeCollection nodeCollection = page.DocumentNode.SelectNodes("//div[@class='snow_depth']//p");
+                var aTags = page.DocumentNode.SelectNodes("//div[@class='ngg-gallery-thumbnail']//a");
 
-                foreach (HtmlNode node in nodeCollection)
+                foreach (var node in aTags)
                 {
+                    var fileName = node.Attributes["href"].Value;
 
-                }
-                if (bildPath.ContentLength > 0)
-                {
-
-                    var fileName = Path.GetFileName(bildPath.FileName);
                     var guid = Guid.NewGuid().ToString();
                     var path = Path.Combine(Server.MapPath("~/uploads"), guid + fileName);
-                    bildPath.SaveAs(path);
+                    bildPath = fileName;
+                    path = bildPath;
                     string fl = path.Substring(path.LastIndexOf("\\"));
                     string[] split = fl.Split('\\');
                     string newpath = split[1];
                     string imagepath = newpath;
                     bilder.bildPath = imagepath;
-                    WebImage img = new WebImage(bildPath.InputStream);
-                    if (img.Width > 900)
-                        img.Resize(900, 900);
-                    img.Save(path);
+                    //WebImage img = new WebImage(bildPath.InputStream);
+                    //if (img.Width > 900)
+                    //    img.Resize(900, 900);
+                    //imagepath.Save(path);
                 }
+                //if (bildPath.ContentLength > 0)
+                //{
+
+                //    var fileName = Path.GetFileName(bildPath.FileName);
+                //    var guid = Guid.NewGuid().ToString();
+                //    var path = Path.Combine(Server.MapPath("~/uploads"), guid + fileName);
+                //    bildPath.SaveAs(path);
+                //    string fl = path.Substring(path.LastIndexOf("\\"));
+                //    string[] split = fl.Split('\\');
+                //    string newpath = split[1];
+                //    string imagepath = newpath;
+                //    bilder.bildPath = imagepath;
+                //    WebImage img = new WebImage(bildPath.InputStream);
+                //    if (img.Width > 900)
+                //        img.Resize(900, 900);
+                //    img.Save(path);
+                //}
                 db.Bilders.Add(bilder);
                 db.SaveChanges();
                 return RedirectToAction("Index");
