@@ -11,6 +11,14 @@ namespace VimmelOrebro.Controllers
     {
         public ActionResult Index()
         {
+            
+             HtmlDocument page = new HtmlWeb().Load("http://www.orebroguiden.com/?p=46903");
+                var aTags = page.DocumentNode.SelectNodes("//div[@class='ngg-gallery-thumbnail']//a");
+
+                foreach (var node in aTags)
+                {
+                    var fileName = node.Attributes["href"].Value;
+                }
             return View();
         }
 
