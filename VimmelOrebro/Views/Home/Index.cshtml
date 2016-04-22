@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "Vimmel Örebro";
 }
 
@@ -7,10 +8,13 @@
     <div class="wrapper">
         <h2></h2>
         <div class="section group">
-
-            <div class="centerImg imgCont">
-
-            </div>
+            @for (int i = 0; i < ViewBag.antal; i++ )
+            {
+               <div class="centerImg imgCont">
+                   <img src="@ViewBag.link[i] " />
+                </div>
+            }
+            
             <p class="text-center imgText">Villa Strömpis</p>
             
         </div>
