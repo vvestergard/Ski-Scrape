@@ -45,9 +45,9 @@ a {
 
 .imgCont {
     background-color: white;
-    border-radius: 2px;
         border: solid #FFFFFF 8px;
-    box-shadow: black 0px 16px 50px -19px;
+    box-shadow: black 0px 16px 44px -19px;
+    padding: 10px;
 }
 
 .centerImg {
