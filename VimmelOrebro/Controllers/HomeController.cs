@@ -11,7 +11,7 @@ namespace VimmelOrebro.Controllers
     {
         public ActionResult Index()
         {
-            
+            HtmlDocument site = new HtmlWeb().Load("http://www.orebroguiden.com/");
              HtmlDocument page = new HtmlWeb().Load("http://www.orebroguiden.com/?p=46903");
                 var aTags = page.DocumentNode.SelectNodes("//div[@class='ngg-gallery-thumbnail']//a");
                 int count = aTags.Count();
