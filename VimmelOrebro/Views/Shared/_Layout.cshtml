@@ -10,6 +10,12 @@
     @Scripts.Render("~/bundles/modernizr")
     <script src="~/Scripts/smoothscroll.js"></script>
     <script src="~/Scripts/LazyLoad.js"></script>
+    <script>
+    /* do it! */
+    window.addEvent("domready", function () {
+        var lazyloader = new LazyLoad();
+    });
+    </script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
