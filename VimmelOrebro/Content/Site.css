@@ -44,16 +44,14 @@ a {
 }
 
 .imgCont {
-    height: 800px;
-    width: 520px;
     background-color: white;
     border-radius: 2px;
-    border: solid #FFFFFF 3px;
-    box-shadow: black 0px 16px 50px -30px;
+        border: solid #FFFFFF 8px;
+    box-shadow: black 0px 16px 50px -19px;
 }
 
 .centerImg {
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
 }
 
@@ -61,6 +59,11 @@ a {
     font-size: 1.8em;
     color: darkslategrey;
     margin: 15px;
+}
+img
+{
+    margin: 0 auto;
+    width: 100%;
 }
 
 /*  SECTIONS  */
