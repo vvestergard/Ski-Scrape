@@ -45,13 +45,11 @@ a {
 
 .imgCont {
     background-color: white;
-        border: solid #FFFFFF 8px;
-    box-shadow: black 0px 16px 44px -19px;
-    padding: 10px;
+    box-shadow: black 0px 20px 30px -30px;
 }
 
 .centerImg {
-    width: 80%;
+    width: 640px;
     margin: 0 auto;
 }
 
@@ -65,6 +63,11 @@ img
     margin: 0 auto;
     width: 100%;
 }
+/*.container
+{
+    width: 100%;
+    margin: 0 auto;
+}*/
 
 /*  SECTIONS  */
 .section {
@@ -77,11 +80,10 @@ img
 .col {
     display: block;
     float: left;
-    margin: 1% 0 1% 1.6%;
+    margin: 1% 0.5% 0.5%;
 }
 
     .col:first-child {
-        margin-left: 0;
     }
 
 /*  GROUPING  */
@@ -105,7 +107,7 @@ img
 }
 
 .span_1_of_2 {
-    width: 49.2%;
+    width: 46.2%;
 }
 
 /*  GRID OF THREE  */
@@ -138,6 +140,11 @@ img
 
     .wrapper {
         width: 100%;
+    }
+
+    .centerImg
+    {
+        width: 80%;
     }
 }
 

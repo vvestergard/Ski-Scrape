@@ -1,38 +1,25 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Vimmel Örebro";
 }
 
 <body>
 
     <div class="wrapper">
-        <h2></h2>
-        <div class="section group">
-            @for (int i = 0; i < ViewBag.antal; i++ )
-            {
-               <div class="centerImg imgCont">
-                   <img src="@ViewBag.link[i] " />
-                </div>
-            }
-            
-            <p class="text-center imgText">Villa Strömpis</p>
-            
-        </div>
 
-        @*<div class="section group">
-            <div class="col span_1_of_3 imgCont">
+        @for (int i = 0; i < ViewBag.antal; i++)
+        {
+
+            <div class="col span_1_of_2 imgCont centerImg">
+
+                <img src="@ViewBag.link[i]" />
             </div>
-            <div class="col span_1_of_3 imgCont">
-
-            </div>
-            <div class="col span_1_of_3 imgCont">
-
-            </div>
-
-        </div>*@
-
-
-
+        }
     </div>
+
+
+
+
+
+
 
 </body>
