@@ -11,16 +11,18 @@ namespace VimmelOrebro.Controllers
     {
         public ActionResult Index()
         {
-            HtmlDocument site = new HtmlWeb().Load("http://www.orebroguiden.com/");
-             HtmlDocument page = new HtmlWeb().Load("http://www.orebroguiden.com/?p=46903");
-                var aTags = page.DocumentNode.SelectNodes("//div[@class='ngg-gallery-thumbnail']//a");
+            
+            HtmlDocument page = new HtmlWeb().Load("http://www.powder.com/photo-of-the-day/");
+                var aTags = page.DocumentNode.SelectNodes("//article[@class='standard-article']//img");
                 int count = aTags.Count();
                 List<string> tags = new List<string>();
                 
                 foreach (var node in aTags)
                 {
-                    var fileName = node.Attributes["href"].Value;
-                    tags.Add(fileName);
+                    var fileName = node.Attributes["data-srcset"].Value;
+                    string[] splits = fileName.Split(' ');
+                    
+                    tags.Add(splits[0]);
 
                 }
                 tags.ToArray();
