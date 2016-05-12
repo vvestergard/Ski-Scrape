@@ -58,11 +58,20 @@ a {
     color: darkslategrey;
     margin: 15px;
 }
-img
-{
+
+img {
     margin: 0 auto;
     width: 100%;
+    border-radius: 1px;
+    -webkit-filter: grayscale(1);
+            transition: .2s;
+
 }
+
+    img:hover {
+        -webkit-filter: grayscale(0);
+        transition: .2s;
+    }
 /*.container
 {
     width: 100%;
@@ -142,8 +151,7 @@ img
         width: 100%;
     }
 
-    .centerImg
-    {
+    .centerImg {
         width: 80%;
     }
 }

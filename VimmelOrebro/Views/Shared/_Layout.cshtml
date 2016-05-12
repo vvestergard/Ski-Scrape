@@ -7,14 +7,17 @@
     <link href="~/Content/Site.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/lightbox.css" rel="stylesheet" />
+
     @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Scripts/lightbox.js"></script>
     <script src="~/Scripts/smoothscroll.js"></script>
     <script src="~/Scripts/LazyLoad.js"></script>
     <script>
-    /* do it! */
-    window.addEvent("domready", function () {
-        var lazyloader = new LazyLoad();
-    });
+        /* do it! */
+        window.addEvent("domready", function () {
+            var lazyloader = new LazyLoad();
+        });
     </script>
 </head>
 <body>
@@ -26,7 +29,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Vimmel Örebro", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Ski Scrape", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
