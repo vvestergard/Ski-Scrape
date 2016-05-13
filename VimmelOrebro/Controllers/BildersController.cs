@@ -56,15 +56,18 @@ namespace VimmelOrebro.Controllers
                 var sida = namn;
                 string sidan = sida;
                 HtmlDocument page = new HtmlWeb().Load(sidan);
-                var aTags = page.DocumentNode.SelectNodes("//div[@class='ngg-gallery-thumbnail']//a");
-
+                var aTags = page.DocumentNode.SelectNodes("//article[@class='standard-article']//img");
+                int count = aTags.Count();
+                List<string> tags = new List<string>();
                 foreach (var node in aTags)
                 {
-                    var fileName = node.Attributes["href"].Value;
-
+                    var fileName = node.Attributes["data-srcset"].Value;
+                    string[] splits = fileName.Split(' ');
+                    tags.Add(splits[0]);
+                    fileName = tags;
                     var guid = Guid.NewGuid().ToString();
-                    var path = Path.Combine(Server.MapPath("~/uploads"), guid + fileName);
-                    bildPath = fileName;
+                    var path = Path.Combine(Server.MapPath("~/uploads"), guid + tags);
+                    bildPath = tags;
                     path = bildPath;
                     string fl = path.Substring(path.LastIndexOf("\\"));
                     string[] split = fl.Split('\\');
