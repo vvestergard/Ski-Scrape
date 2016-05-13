@@ -64,10 +64,10 @@ namespace VimmelOrebro.Controllers
                     var fileName = node.Attributes["data-srcset"].Value;
                     string[] splits = fileName.Split(' ');
                     tags.Add(splits[0]);
-                    fileName = tags;
+                    
                     var guid = Guid.NewGuid().ToString();
                     var path = Path.Combine(Server.MapPath("~/uploads"), guid + tags);
-                    bildPath = tags;
+                    bildPath = fileName;
                     path = bildPath;
                     string fl = path.Substring(path.LastIndexOf("\\"));
                     string[] split = fl.Split('\\');
