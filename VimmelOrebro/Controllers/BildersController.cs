@@ -64,16 +64,15 @@ namespace VimmelOrebro.Controllers
                     var fileName = node.Attributes["data-srcset"].Value;
                     string[] splits = fileName.Split(' ');
                     tags.Add(splits[0]);
-                    
+                }
+                foreach (var item in tags){
                     var guid = Guid.NewGuid().ToString();
-                    var path = Path.Combine(Server.MapPath("~/uploads"), guid + tags);
-                    bildPath = fileName;
-                    path = bildPath;
-                    string fl = path.Substring(path.LastIndexOf("\\"));
-                    string[] split = fl.Split('\\');
-                    string newpath = split[1];
-                    string imagepath = newpath;
-                    bilder.bildPath = imagepath;
+                    string fl = Path.Combine(Server.MapPath("~/uploads"),item.Substring(item.LastIndexOf('/') + 1)); // remove ... guid + to remove guid
+
+
+                    var b = new Bilder() { EnrollmentDate = bilder.EnrollmentDate, bildPath = fl };
+                    db.Bilders.Add(b);
+                    
                     //WebImage img = new WebImage(bildPath.InputStream);
                     //if (img.Width > 900)
                     //    img.Resize(900, 900);
@@ -96,7 +95,6 @@ namespace VimmelOrebro.Controllers
                 //        img.Resize(900, 900);
                 //    img.Save(path);
                 //}
-                db.Bilders.Add(bilder);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
